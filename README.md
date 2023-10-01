@@ -1,17 +1,29 @@
 # Ex-No-5-Creating-Triggers-using-PL-SQL
 
-Ex. No: 5 Creating Triggers using PL/SQL
-AIM: To create a Trigger using PL/SQL.
+# AIM:
+
+To create a Trigger using PL/SQL.
+
 Steps:
-Create employee table with following attributes (empid NUMBER, empname VARCHAR(10), dept VARCHAR(10),salary NUMBER);
-Create salary_log table with following attributes (log_id NUMBER GENERATED ALWAYS AS IDENTITY, empid NUMBER,empname VARCHAR(10),old_salary NUMBER,new_salary NUMBER,update_date DATE);
-Create a trigger named as log_salary-update.
-Inside the trigger block, Insert the values into the salary_log table whenever the salary is updated.
-End the trigger.
-Update the salary of an employee in employee table.
-Whenever a salary is updated for the employee it must be logged into the salary_log table with old salary and new salary.
-Display the employee table, salary_log table.
+
+1.Create employee table with following attributes (empid NUMBER, empname VARCHAR(10), dept VARCHAR(10),salary NUMBER);
+
+2.Create salary_log table with following attributes (log_id NUMBER GENERATED ALWAYS AS IDENTITY, empid NUMBER,empname VARCHAR(10),old_salary NUMBER,new_salary NUMBER,update_date DATE);
+
+3.Create a trigger named as log_salary-update.
+
+4.Inside the trigger block, Insert the values into the salary_log table whenever the salary is updated.
+
+5.End the trigger.
+
+6.Update the salary of an employee in employee table.
+
+7.Whenever a salary is updated for the employee it must be logged into the salary_log table with old salary and new salary.
+
+8.Display the employee table, salary_log table.
+
 Program:
+```
 CREATE TABLE employed(
   empid NUMBER,
   empname VARCHAR2(10),
@@ -31,14 +43,21 @@ CREATE TABLE sal_log (
 insert into employed values(1,'dulquer','IT',1000000);
 insert into employed values(2,'amal','SALES',500000);
 
+```
 Create employee table
+```
 CREATE TABLE employed(
   empid NUMBER,
   empname VARCHAR2(10),
   dept VARCHAR2(10),
   salary NUMBER
 );
+
+```
+
 Create salary_log table
+
+```
 CREATE TABLE sal_log (
   log_id NUMBER GENERATED ALWAYS AS IDENTITY,
   empid NUMBER,
@@ -47,7 +66,11 @@ CREATE TABLE sal_log (
   new_salary NUMBER,
   update_date DATE
 );
-PLSQL Trigger code
+```
+
+# PLSQL Trigger code
+
+```
 -- Create the trigger
 CREATE OR REPLACE TRIGGER log_sal_update
 BEFORE UPDATE ON employed
@@ -72,8 +95,12 @@ SELECT * FROM employed;
 
 -- Display the salary_log table
 SELECT * FROM sal_log;
+```
 Output:
-image
 
-Result:
+![image](https://github.com/NivethaKumar30/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/119559844/b591d41e-6c1a-4a34-9876-25778989cc4d)
+
+
+# Result:
+
 Thus , the output has been successfully verified.
